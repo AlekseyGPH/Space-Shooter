@@ -11,6 +11,9 @@ class Ship(pygame.sprite.Sprite):
         self.rect.bottom = SCREEN_HEIGHT - 10
         self.speedx = 10
         self.hp = 100
+        self.upgrade = False
+        self.upgrade_time = pygame.time.get_ticks()
+        self.shield = False
 
     def update(self):
         keys = pygame.key.get_pressed()
@@ -28,4 +31,6 @@ class Ship(pygame.sprite.Sprite):
         if self.rect.right >= SCREEN_WIDTH:
             self.rect.right = SCREEN_WIDTH
 
-    
+    def upgrade_gun(self):
+        self.upgrade = True
+        self.upgrade_time = pygame.time.get_ticks()
